@@ -1,0 +1,15 @@
+artifact_uri: file:///home/rayen/rayen-lassoued-4DS1-ml_project/mlruns/889645719848330806/7874297ffbe143bb94cd7ccb54846686/artifacts
+end_time: 1740350617952
+entry_point_name: ''
+experiment_id: '889645719848330806'
+lifecycle_stage: active
+run_id: 7874297ffbe143bb94cd7ccb54846686
+run_name: serious-stag-369
+run_uuid: 7874297ffbe143bb94cd7ccb54846686
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740350615916
+status: 3
+tags: []
+user_id: rayen

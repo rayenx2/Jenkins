@@ -1,0 +1,15 @@
+artifact_uri: file:///home/rayen/rayen-lassoued-4DS1-ml_project/mlruns/889645719848330806/0b540b7309f041b6af927f77361922d5/artifacts
+end_time: 1740429253646
+entry_point_name: ''
+experiment_id: '889645719848330806'
+lifecycle_stage: active
+run_id: 0b540b7309f041b6af927f77361922d5
+run_name: whimsical-fly-356
+run_uuid: 0b540b7309f041b6af927f77361922d5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740429251791
+status: 3
+tags: []
+user_id: rayen

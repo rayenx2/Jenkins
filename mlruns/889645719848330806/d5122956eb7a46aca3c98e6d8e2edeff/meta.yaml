@@ -1,0 +1,15 @@
+artifact_uri: file:///home/rayen/rayen-lassoued-4DS1-ml_project/mlruns/889645719848330806/d5122956eb7a46aca3c98e6d8e2edeff/artifacts
+end_time: 1740351104434
+entry_point_name: ''
+experiment_id: '889645719848330806'
+lifecycle_stage: active
+run_id: d5122956eb7a46aca3c98e6d8e2edeff
+run_name: bustling-bat-196
+run_uuid: d5122956eb7a46aca3c98e6d8e2edeff
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740351102882
+status: 3
+tags: []
+user_id: rayen
