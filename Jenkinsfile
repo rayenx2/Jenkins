@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout GIT') {
             steps {
                 echo 'Pulling latest code...'
-                git branch: 'main', url: 'https://github.com/rayenx2/Jenkins.git'
+                git branch: 'master', url: 'https://github.com/rayenx2/Jenkins.git'
             }
         }
 
