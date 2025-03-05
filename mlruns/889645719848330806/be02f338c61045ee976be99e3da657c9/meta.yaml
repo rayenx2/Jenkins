@@ -1,0 +1,15 @@
+artifact_uri: file:///home/rayen/rayen-lassoued-4DS1-ml_project/mlruns/889645719848330806/be02f338c61045ee976be99e3da657c9/artifacts
+end_time: 1740565784078
+entry_point_name: ''
+experiment_id: '889645719848330806'
+lifecycle_stage: active
+run_id: be02f338c61045ee976be99e3da657c9
+run_name: grandiose-swan-60
+run_uuid: be02f338c61045ee976be99e3da657c9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740565778943
+status: 3
+tags: []
+user_id: rayen

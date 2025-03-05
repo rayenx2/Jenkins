@@ -1,16 +1,13 @@
-nohup: ignoring input
-[2025-02-24 16:09:33 +0100] [4063] [INFO] Starting gunicorn 23.0.0
-[2025-02-24 16:09:33 +0100] [4063] [ERROR] Connection in use: ('0.0.0.0', 5000)
-[2025-02-24 16:09:33 +0100] [4063] [ERROR] connection to ('0.0.0.0', 5000) failed: [Errno 98] Address already in use
-[2025-02-24 16:09:34 +0100] [4063] [ERROR] Connection in use: ('0.0.0.0', 5000)
-[2025-02-24 16:09:34 +0100] [4063] [ERROR] connection to ('0.0.0.0', 5000) failed: [Errno 98] Address already in use
-[2025-02-24 16:0[2025-02-24 16:10:54 +0100] [3761] [INFO] Parent changed, shutting down: <Worker 3761>
-[2025-02-24 16:10:54 +0100] [3761] [INFO] Worker exiting (pid: 3761)
-[2025-02-24 16:10:54 +0100] [3762] [INFO] Parent changed, shutting down: <Worker 3762>
-[2025-02-24 16:10:54 +0100] [3762] [INFO] Worker exiting (pid: 3762)
-[2025-02-24 16:10:54 +0100] [3783] [INFO] Parent changed, shutting down: <Worker 3783>
-[2025-02-24 16:10:54 +0100] [3783] [INFO] Worker exiting (pid: 3783)
-[2025-02-24 16:10:54 +0100] [3784] [INFO] Parent changed, shutting down: <Worker 3784>
-[2025-02-24 16:10:54 +0100] [3784] [INFO] Worker exiting (pid: 3784)
-connect to ('0.0.0.0', 5000)
+[2025-03-05 01:32:37 +0100] [11735] [INFO] Starting gunicorn 23.0.0
+[2025-03-05 01:32:37 +0100] [11735] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2025-03-05 01:32:37 +0100] [11735] [ERROR] connection to ('0.0.0.0', 5000) failed: [Errno 98] Address already in use
+[2025-03-05 01:32:38 +0100] [11735] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2025-03-05 01:32:38 +0100] [11735] [ERROR] connection to ('0.0.0.0', 5000) failed: [Errno 98] Address already in use
+[2025-03-05 01:32:39 +0100] [11735] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2025-03-05 01:32:39 +0100] [11735] [ERROR] connection to ('0.0.0.0', 5000) failed: [Errno 98] Address already in use
+[2025-03-05 01:32:40 +0100] [11735] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2025-03-05 01:32:40 +0100] [11735] [ERROR] connection to ('0.0.0.0', 5000) failed: [Errno 98] Address already in use
+[2025-03-05 01:32:41 +0100] [11735] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2025-03-05 01:32:41 +0100] [11735] [ERROR] connection to ('0.0.0.0', 5000) failed: [Errno 98] Address already in use
+[2025-03-05 01:32:42 +0100] [11735] [ERROR] Can't connect to ('0.0.0.0', 5000)
 Running the mlflow server failed. Please see the logs above for details.

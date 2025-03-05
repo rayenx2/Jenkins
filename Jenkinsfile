@@ -2,66 +2,112 @@ pipeline {
     agent any
 
     environment {
-        PYTHON = 'python'
-        PIP = 'pip'
-        REQUIREMENTS = 'requirements.txt'
-        TRAIN_DATA = 'churn-bigml-80.csv'
-        TEST_DATA = 'churn-bigml-20.csv'
-        MODEL_FILE = 'modelRF.joblib'
+        VENV = 'venv'  // Define the virtual environment directory
+        PYTHON = 'python3'  // Ensure you are using python3
     }
 
     stages {
-        stage('Clone Repository') {
+        stage('Checkout GIT') {
             steps {
-                echo 'Cloning the repository...'
-                checkout scm
+                echo 'Pulling latest code...'
+                git branch: 'main', url: 'https://github.com/rayenx2/Jenkins.git'
             }
         }
 
-        stage('Setup Python Environment') {
+        stage('Debug') {
             steps {
-                echo 'Setting up Python virtual environment...'
-                sh 'python3 -m venv venv'
-                sh 'source venv/bin/activate && pip install --upgrade pip && pip install -r requirements.txt'
+                echo 'Current Directory:'
+                sh 'pwd'
+                echo 'Listing Files:'
+                sh 'ls -la'
+                echo 'Checking for necessary files:'
+                script {
+                    def reqFile = 'requirements.txt'
+                    if (fileExists(reqFile)) {
+                        echo "${reqFile} file found!"
+                    } else {
+                        error "${reqFile} file not found. Aborting build."
+                    }
+                    def makefile = 'Makefile'
+                    if (fileExists(makefile)) {
+                        echo "${makefile} file found!"
+                    } else {
+                        error "${makefile} file not found. Aborting build."
+                    }
+                }
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                echo 'Installing dependencies...'
+                sh '''
+                    python3 -m venv venv
+                    . venv/bin/activate
+                    pip install -r requirements.txt
+                '''
             }
         }
 
         stage('Prepare Data') {
             steps {
                 echo 'Preparing data...'
-                sh 'source venv/bin/activate && python -c "from model_pipeline import prepare_data; prepare_data(\'${TRAIN_DATA}\', \'${TEST_DATA}\')"'
-            }
-        }
-
-        stage('Start MLflow Server') {
-            steps {
-                echo 'Starting MLflow Tracking Server...'
-                sh 'nohup mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlruns --host 0.0.0.0 --port 5000 > mlflow.log 2>&1 &'
+                sh '''
+                    . venv/bin/activate
+                    make prepare
+                '''
             }
         }
 
         stage('Train Model') {
             steps {
-                echo 'Training the model...'
-                sh 'source venv/bin/activate && python main.py'
+                echo 'Training model...'
+                sh '''
+                    . venv/bin/activate
+                    make train
+                '''
             }
         }
 
         stage('Evaluate Model') {
             steps {
-                echo 'Evaluating the model...'
-                sh 'source venv/bin/activate && python -c "from model_pipeline import evaluate_model, prepare_data; import joblib; X_train, y_train, X_test, y_test = prepare_data(\'${TRAIN_DATA}\', \'${TEST_DATA}\'); model = joblib.load(\'${MODEL_FILE}\'); metrics = evaluate_model(model, X_test, y_test); print(\'Evaluation Metrics:\', metrics)"'
+                echo 'Evaluating model...'
+                sh '''
+                    . venv/bin/activate
+                    make evaluate
+                '''
             }
         }
+
+        // New stage to start FastAPI app for prediction
+        stage('Start FastAPI App') {
+            steps {
+                echo 'Starting FastAPI app for prediction...'
+                sh '''
+                    . venv/bin/activate
+                    make run_api
+                '''
+            }
+        }
+
+        // New stage to start MLflow server (tracking API and UI)
+        stage('Start MLflow Server') {
+            steps {
+                echo 'Starting MLflow server...'
+                sh '''
+                    . venv/bin/activate
+                    make start_mlflow
+                '''
+            }
+        }
+
+
     }
 
     post {
-        success {
-            echo 'Pipeline executed successfully!'
-        }
-        failure {
-            echo 'Pipeline failed! Check logs for errors.'
+        always {
+            echo 'Cleaning workspace...'
+            deleteDir()
         }
     }
 }
-

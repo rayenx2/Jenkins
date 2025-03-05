@@ -1,0 +1,15 @@
+artifact_uri: file:///home/rayen/rayen-lassoued-4DS1-ml_project/mlruns/889645719848330806/5db38adaa9dd40e28c4a54842a0da878/artifacts
+end_time: 1741093165699
+entry_point_name: ''
+experiment_id: '889645719848330806'
+lifecycle_stage: active
+run_id: 5db38adaa9dd40e28c4a54842a0da878
+run_name: respected-mare-824
+run_uuid: 5db38adaa9dd40e28c4a54842a0da878
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741093162426
+status: 3
+tags: []
+user_id: rayen

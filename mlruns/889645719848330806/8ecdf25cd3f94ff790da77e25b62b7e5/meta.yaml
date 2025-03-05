@@ -1,0 +1,15 @@
+artifact_uri: file:///home/rayen/rayen-lassoued-4DS1-ml_project/mlruns/889645719848330806/8ecdf25cd3f94ff790da77e25b62b7e5/artifacts
+end_time: 1740564943788
+entry_point_name: ''
+experiment_id: '889645719848330806'
+lifecycle_stage: active
+run_id: 8ecdf25cd3f94ff790da77e25b62b7e5
+run_name: classy-wasp-203
+run_uuid: 8ecdf25cd3f94ff790da77e25b62b7e5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740564941548
+status: 3
+tags: []
+user_id: rayen

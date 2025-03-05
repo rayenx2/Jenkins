@@ -4,6 +4,10 @@ import mlflow.sklearn
 import logging
 from elasticsearch import Elasticsearch
 from model_pipeline import prepare_data, train_and_save_model, evaluate_model  # Import your pipeline functions
+from mlflow.tracking import MlflowClient  # Import the MlflowClient to interact with the Model Registry
+
+# Set MLflow tracking URI
+mlflow.set_tracking_uri("sqlite:///mlflow.db")  # Set the tracking URI for MLflow
 
 # Connexion à Elasticsearch
 es = Elasticsearch(["http://localhost:9200"])
@@ -53,11 +57,25 @@ def main():
                 mlflow.log_metric("recall", metrics["recall"])
                 mlflow.log_metric("f1_score", metrics["f1_score"])
 
-                # Log model
+                # Log the model
                 mlflow.sklearn.log_model(trained_model, "random_forest_model")
 
+                # Register the model in the Model Registry
+                client = MlflowClient()  # MLflow Client to interact with the Model Registry
+                model_uri = f"runs:/{mlflow.active_run().info.run_id}/random_forest_model"  # Model URI
+                
+                # Create registered model if it does not exist
+                try:
+                    client.create_registered_model("random_forest_model")
+                except Exception as e:
+                    logger.info("Model already registered, skipping registration.")
+
+                # Register a new version of the model
+                model_version = client.create_model_version("random_forest_model", model_uri, "v1")
+                logger.info(f"Model version {model_version.version} registered successfully.")
+
                 log_to_elasticsearch("mlflow-logs", {
-                    "message": "Model trained successfully",
+                    "message": "Model trained and versioned successfully",
                     "accuracy": metrics["accuracy"],
                     "precision": metrics["precision"],
                     "recall": metrics["recall"],

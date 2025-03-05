@@ -1,0 +1,15 @@
+artifact_uri: file:///home/rayen/rayen-lassoued-4DS1-ml_project/mlruns/889645719848330806/0e5fcfff38d3401a9b2b69bebf066429/artifacts
+end_time: 1741093149505
+entry_point_name: ''
+experiment_id: '889645719848330806'
+lifecycle_stage: active
+run_id: 0e5fcfff38d3401a9b2b69bebf066429
+run_name: calm-chimp-656
+run_uuid: 0e5fcfff38d3401a9b2b69bebf066429
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741093149484
+status: 4
+tags: []
+user_id: rayen

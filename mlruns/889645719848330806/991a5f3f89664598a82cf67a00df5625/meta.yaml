@@ -1,0 +1,15 @@
+artifact_uri: file:///home/rayen/rayen-lassoued-4DS1-ml_project/mlruns/889645719848330806/991a5f3f89664598a82cf67a00df5625/artifacts
+end_time: 1741092225987
+entry_point_name: ''
+experiment_id: '889645719848330806'
+lifecycle_stage: active
+run_id: 991a5f3f89664598a82cf67a00df5625
+run_name: brawny-sheep-891
+run_uuid: 991a5f3f89664598a82cf67a00df5625
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741092223194
+status: 3
+tags: []
+user_id: rayen
